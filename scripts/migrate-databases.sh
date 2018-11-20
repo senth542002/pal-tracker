@@ -53,7 +53,7 @@ function pre_tunnel_exit() {
 trap pre_tunnel_exit EXIT
 
 function close_tunnel_at_exit() {
-    echo "Closing tunnel"
+    echo "Closing the tunnel"
     kill -KILL $cf_ssh_pid
 }
 
