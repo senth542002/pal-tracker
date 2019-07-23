@@ -3,8 +3,9 @@
 applications:
   - name: pal-tracker
     path: build/libs/pal-tracker.jar
-    random-route: true
+    routes:
+    - route: pal-tracker-sleepy-turtle.apps.evans.pal.pivotal.io
     buildpack: java_buildpack_offline
     env:
-      WELCOME_MESSAGE: Hello from Cloud Foundry
+      WELCOME_MESSAGE: Hello from the review environment
       JBP_CONFIG_OPEN_JDK_JRE: '{ jre: { version: 11.+ } }'
