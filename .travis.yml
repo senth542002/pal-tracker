@@ -1,5 +1,5 @@
 dist: trusty
-sudo: true
+sudo: false
 notifications:
   email: false
 env:
@@ -13,6 +13,7 @@ jobs:
       language: java
       jdk: openjdk11
       install: skip
+      before_script: chmod 777 gradlew
       script: ./gradlew clean build
       before_deploy:
         - git config --local user.name "Travis CI"
