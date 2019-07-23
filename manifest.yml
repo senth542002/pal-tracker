@@ -6,5 +6,5 @@ applications:
     random-route: true
     buildpack: java_buildpack_offline
     env:
-      WELCOME_MESSAGE: Hello from cloud foundry
+      WELCOME_MESSAGE: Hello from Cloud Foundry
       JBP_CONFIG_OPEN_JDK_JRE: '{ jre: { version: 11.+ } }'
