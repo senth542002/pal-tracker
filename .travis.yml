@@ -21,6 +21,7 @@ jobs:
         - chmod 777 gradlew
       script: ./gradlew clean build
       before_deploy:
+        - chmod 777 gradlew
         - git config --local user.name "Travis CI"
         - git config --local user.email "travis@example.com"
         - git tag -f $RELEASE_TAG
@@ -32,6 +33,7 @@ jobs:
     - stage: deploy to cf
       language: java
       before_install:
+        - chmod 777 gradlew
         - wget -q -O - https://packages.cloudfoundry.org/debian/cli.cloudfoundry.org.key | sudo apt-key add -
         - echo "deb https://packages.cloudfoundry.org/debian stable main" | sudo tee /etc/apt/sources.list.d/cloudfoundry-cli.list
         - sudo apt-get update
@@ -46,6 +48,7 @@ jobs:
       before_script:
         - chmod 777 gradlew
         - cf login -a $CF_API_URL -u $CF_USERNAME -p $CF_PASSWORD -o $CF_ORG -s $CF_SPACE
+        - chmod 777 scripts/migrate-databases.sh
         - scripts/migrate-databases.sh pal-tracker .
       deploy:
         provider: cloudfoundry
