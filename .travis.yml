@@ -18,6 +18,7 @@ jobs:
         - mysql -uroot < databases/tracker/create_databases.sql
         - curl https://repo1.maven.org/maven2/org/flywaydb/flyway-commandline/5.1.1/flyway-commandline-5.1.1-linux-x64.tar.gz | tar xvz
         - flyway-*/flyway -url="jdbc:mysql://localhost:3306/tracker_test" -locations=filesystem:databases/tracker -user=tracker -password= clean migrate
+        - chmod 777 gradlew
       script: ./gradlew clean build
       before_deploy:
         - git config --local user.name "Travis CI"
