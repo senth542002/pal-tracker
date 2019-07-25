@@ -29,6 +29,7 @@ repositories {
 dependencies {
     compile("org.springframework.boot:spring-boot-starter-web:$springBootVersion")
     compile("org.springframework.boot:spring-boot-starter-jdbc:$springBootVersion")
+    compile("org.springframework.boot:spring-boot-starter-actuator:$springBootVersion")
     compile("mysql:mysql-connector-java:8.0.11")
 
     testCompile("org.springframework.boot:spring-boot-starter-test:$springBootVersion")
@@ -40,6 +41,7 @@ def developmentDbUrl = "jdbc:mysql://localhost:3306/tracker_dev?user=tracker&use
 bootRun.environment([
      "WELCOME_MESSAGE": "hello",
      "SPRING_DATASOURCE_URL": developmentDbUrl,
+     "MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE": "*",
 
 ])
 def testDbUrl = "jdbc:mysql://localhost:3306/tracker_test?user=tracker&useSSL=false&useTimezone=true&serverTimezone=UTC&useLegacyDatetimeCode=false"
